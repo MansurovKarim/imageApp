@@ -8,13 +8,12 @@ import javax.inject.Inject
 class ApiRepository @Inject constructor(
     private val apiService: ApiService
 ) {
-suspend fun getImages(apiKey: String, query: String): Either<Throwable, ApiResponse> {
-    return try {
-        val response = apiService.getImages(apiKey, query)
-        Either.Success(response)
-    } catch (e: Exception) {
-        Either.Error(e)
-
+    suspend fun getImages(apiKey: String, query: String): Either<Throwable, ApiResponse> {
+        return try {
+            val response = apiService.getImages(apiKey, query)
+            Either.Success(response)
+        } catch (e: Exception) {
+            Either.Error(e)
+        }
     }
-}
 }
