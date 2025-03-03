@@ -26,18 +26,18 @@ class MainActivity : AppCompatActivity() {
         initialize()
     }
 
-    private fun initialize() {
-        viewModel.getImages("49085045-188b342da441f8a6e1476a6e9", "red")
-        viewModel.getWhether("cf21bdf785394d0bb0a72455250702", "Bishkek")
-        binding.apply {
-            recyclerView.adapter = adapter
-            viewModel.images.observe(this@MainActivity) { response ->
-                adapter.submitList(response.hits)
-            }
-
-            viewModel.weather.observe(this@MainActivity) { response ->
-                textView.text = response.current?.tempC.toString()
-            }
-        }
+//    private fun initialize() {
+//        viewModel.getImages("49085045-188b342da441f8a6e1476a6e9", "red")
+//        viewModel.getWhether("cf21bdf785394d0bb0a72455250702", "Bishkek")
+//        binding.apply {
+//            recyclerView.adapter = adapter
+//            viewModel.images.observe(this@MainActivity) { response ->
+//                adapter.submitList(response.hits)
+//            }
+//
+//            viewModel.weather.observe(this@MainActivity) { response ->
+//                textView.text = response.current?.tempC.toString()
+//            }
+//        }
     }
 }
