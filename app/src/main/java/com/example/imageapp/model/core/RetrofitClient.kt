@@ -1,6 +1,7 @@
 package com.example.imageapp.model.core
 
 import com.example.imageapp.model.service.ApiService
+import com.example.imageapp.model.service.WhetherApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -9,7 +10,6 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
@@ -41,8 +41,16 @@ object RetrofitClient {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: retrofit2.Retrofit): ApiService{
+    fun provideApiService(retrofit: retrofit2.Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun provideWhetherApiService(retrofit: retrofit2.Retrofit): WhetherApiService {
+        return retrofit.create(WhetherApiService::class.java)
+    }
 }
+
+// test base url
+// prod url

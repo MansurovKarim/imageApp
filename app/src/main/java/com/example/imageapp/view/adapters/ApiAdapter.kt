@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imageapp.databinding.ItemListBinding
-import com.example.imageapp.model.models.ApiResponse
+import com.example.imageapp.model.models.Hit
 
-class ApiAdapter : ListAdapter<ApiResponse, ApiAdapter.ApiViewHolder>(ApiDiffUtil) {
+class ApiAdapter : ListAdapter<Hit, ApiAdapter.ApiViewHolder>(ApiDiffUtil) {
 
 
     class ApiViewHolder(
@@ -32,18 +32,18 @@ class ApiAdapter : ListAdapter<ApiResponse, ApiAdapter.ApiViewHolder>(ApiDiffUti
         holder.binding.apply {
             val item = getItem(position)
             Glide.with(holder.itemView)
-                .load(item.hits?.get(position)?.largeImageURL)
+                .load(item.largeImageURL)
                 .into(image)
 
         }
     }
 
-     object ApiDiffUtil : DiffUtil.ItemCallback<ApiResponse>(){
-        override fun areItemsTheSame(oldItem: ApiResponse, newItem: ApiResponse): Boolean {
+     object ApiDiffUtil : DiffUtil.ItemCallback<Hit>(){
+        override fun areItemsTheSame(oldItem: Hit, newItem: Hit): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: ApiResponse, newItem: ApiResponse): Boolean {
+        override fun areContentsTheSame(oldItem: Hit, newItem: Hit): Boolean {
             return oldItem == newItem
         }
 
